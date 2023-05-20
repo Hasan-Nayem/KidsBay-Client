@@ -5,8 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import ActiveLinks from '../ActiveLinks/ActiveLinks';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+    const {user} = useContext(AuthContext);
+    console.log("from header ",user);
     return (
         <div className="container p-4">
              <Navbar expand="lg">
@@ -26,12 +30,24 @@ const Header = () => {
                         <ActiveLinks to="/">Add A New Toy</ActiveLinks>
                     </Nav>
                     <Nav className="d-flex align-items-center justify-content-between">
-                        <a href="#" className="react-tooltip"><img className="user-img mx-2 " style={{width:"50px",height:"50px",borderRadius:"50px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYWFXbd9hr7VcMQ63aguH1t5IEg3L2JdFoej8P7l4&s" alt="" /></a>
-                        <Tooltip anchorSelect=".react-tooltip" place="bottom">
-                            User Name
-                        </Tooltip>
-                        <ActiveLinks to='/logout'><i className="fa-solid fa-right-from-bracket fs-2"></i></ActiveLinks>
-                        <ActiveLinks to='/login'><i className="fa-solid fa-user fs-2"></i></ActiveLinks>
+                        {
+                            user? 
+                            <>
+                                <a href="#" className="react-tooltip">
+                                    {
+                                        user.photoURL ?
+                                        <img className="user-img mx-2 " style={{width:"50px",height:"50px",borderRadius:"50px"}} src={user.photoURL} alt="" />
+                                        :
+                                        <img className="user-img mx-2 " style={{width:"50px",height:"50px",borderRadius:"50px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYWFXbd9hr7VcMQ63aguH1t5IEg3L2JdFoej8P7l4&s" alt="" />
+                                    }
+                                    </a>
+                                <Tooltip anchorSelect=".react-tooltip" place="bottom">
+                                    {user.displayName}
+                                </Tooltip>
+                                <ActiveLinks to='/logout'><i className="fa-solid fa-right-from-bracket fs-2"></i></ActiveLinks>
+                            </>:
+                                <ActiveLinks to='/login'><i className="fa-solid fa-user fs-2"></i></ActiveLinks>
+                        }
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

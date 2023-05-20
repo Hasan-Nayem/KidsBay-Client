@@ -11,6 +11,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import AuthProvider from './providers/AuthProvider';
+import Loader from './Components/Loader/Loader';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path :"/loader",
+    element: <Loader></Loader>
+  }
   
 ]);
 

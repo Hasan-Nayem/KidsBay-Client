@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Registration.css';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from 'firebase/auth';
 const Registration = () => {
     useTitle("Register")
+    const navigate = useNavigate();
     const [show, SetShow] = useState(false);
     const {register} = useContext(AuthContext);
     const handleShow = () => SetShow(!show);
@@ -20,7 +21,6 @@ const Registration = () => {
         const photoURL = form.email.photoURL;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
-        // console.log(`Registration vlaue ${name} ${email} ${password} ${confirmPassword} `);
         if(password !== confirmPassword){
             return toast.error("Password doesn't match!!");
         }
@@ -35,8 +35,11 @@ const Registration = () => {
         .then(result => {
             updateProfile(result.user, {
                 displayName: name, photoURL: photoURL
-            }).then(()=> {toast.success("Profile Created Successfully ")})
+            }).then(()=> {
+                form.clear();
+            })
             .catch(err => console.log(err));
+            navigate('/');
         })
         .catch(err=> console.log(err));
 

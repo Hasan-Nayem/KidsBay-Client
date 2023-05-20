@@ -1,22 +1,42 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { useTitle } from '../../hooks/hooks';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
     useTitle("Login");
+    const {login} = useContext(AuthContext);
+    const [show,SetShow] = useState(false);
+    const handleShow = () => SetShow(!show);
+    const navigate = useNavigate();
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        login(email,password)
+        .then(result => {
+            console.log(result);
+            form.reset();
+            navigate('/');
+        })
+        .catch(err => console.log(err));
+        
+    }
     return (
         <div className="container my-5 p-4 shadow">
             <h1 className="text-center fw-bolder mb-4">Login to <span style={{ color:"#ff8441"}}>KidsBay</span></h1>
-            <form className="form-control">
+            <form onSubmit={handleLogin} className="form-control">
                 <div className="form-group my-2">
                     <label htmlFor="email">Your Email</label>
                     <input type="email" name="email" className="form-control" />
                 </div>
                 <div className="form-group my-2">
                     <label htmlFor="password">Your Password</label>
-                    <input type="password" name="Password" className="form-control" />
+                    <input type={show? "text" : "password"} name="password" className="form-control" />
                     <div className="d-flex align-items-center my-2">
                         <span className="me-2">show password</span>
-                        <input type="checkbox" placeholder='' />
+                        <input onClick={handleShow} type="checkbox" placeholder='' />
                     </div>
                 </div>
                 <div className="form-group my-1 text-center">

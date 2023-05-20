@@ -18,7 +18,7 @@ const Registration = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photoURL = form.email.photoURL;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
         if(password !== confirmPassword){
@@ -36,7 +36,7 @@ const Registration = () => {
             updateProfile(result.user, {
                 displayName: name, photoURL: photoURL
             }).then(()=> {
-                form.clear();
+                form.reset();
             })
             .catch(err => console.log(err));
             navigate('/');

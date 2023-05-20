@@ -7,12 +7,22 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const {user,logout} = useContext(AuthContext);
     console.log("from header ",user);
+    const handleLogout = () =>{
+        logout()
+        .then(() =>{
+            toast.success("Logged Out, See you soon");
+        })
+    }
     return (
         <div className="container p-4">
+            <ToastContainer />
              <Navbar expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
@@ -44,8 +54,8 @@ const Header = () => {
                                 <Tooltip anchorSelect=".react-tooltip" place="bottom">
                                     {user.displayName}
                                 </Tooltip>
-                                <ActiveLinks to='/logout'><i className="fa-solid fa-right-from-bracket fs-2"></i></ActiveLinks>
-                            </>:
+                                <Link className="nav-link" onClick={handleLogout}> <i className="fa-solid fa-right-from-bracket fs-2"></i> </Link>
+                                </>:
                                 <ActiveLinks to='/login'><i className="fa-solid fa-user fs-2"></i></ActiveLinks>
                         }
                     </Nav>

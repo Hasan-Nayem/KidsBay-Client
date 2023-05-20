@@ -1,0 +1,28 @@
+.carousel{
+    width: 1240px;
+    margin: 0 auto;
+}
+.carousel-img{
+    margin: 0 auto;
+    width: 1240px;
+}
+.shop-now-btn{
+    padding: 15px 50px;
+    border-radius: 32px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #1e2d5f;
+    color: white;
+    transition: all .4s ease;
+}
+.shop-now-btn:hover{
+    padding: 15px 50px;
+    border-radius: 32px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #ff8441 ;
+    color: white;
+    transition: all .4s ease;
+}

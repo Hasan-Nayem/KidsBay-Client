@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
 import './Login.css';
+import { useTitle } from '../../hooks/hooks';
 const Login = () => {
+    useTitle("Login");
     return (
         <div className="container my-5 p-4 shadow">
             <h1 className="text-center fw-bolder mb-4">Login to <span style={{ color:"#ff8441"}}>KidsBay</span></h1>
@@ -29,7 +32,7 @@ const Login = () => {
                     <p className="btn-text" style={{fontSize: "12px"}}><b>Sign in with google</b></p>
                 </div>
             </div>
-
+            <small>Still not registered?? <Link to="/registration">Register Here</Link> </small>
         </div>
     );
 };

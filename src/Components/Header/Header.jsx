@@ -14,7 +14,6 @@ import logo from '../../assets/logo.png';
 
 const Header = () => {
     const {user,logout} = useContext(AuthContext);
-    console.log("from header ",user);
     const handleLogout = () =>{
         logout()
         .then(() =>{
@@ -39,9 +38,9 @@ const Header = () => {
                     >
                         <ActiveLinks to="/">Home</ActiveLinks>
                         <ActiveLinks to="/blog">Blog</ActiveLinks>
-                        <ActiveLinks to="/">All Toys</ActiveLinks>
-                        <ActiveLinks to="/">My Toys</ActiveLinks>
-                        <ActiveLinks to="/">Add A New Toy</ActiveLinks>
+                        <ActiveLinks to="/all-toys">All Toys</ActiveLinks>
+                        <ActiveLinks to="/my-toy">My Toys</ActiveLinks>
+                        <ActiveLinks to="/add-toy">Add A New Toy</ActiveLinks>
                     </Nav>
                     <Nav className="d-flex align-items-center justify-content-between">
                         {

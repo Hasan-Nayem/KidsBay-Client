@@ -13,6 +13,10 @@ import Registration from './Components/Registration/Registration';
 import AuthProvider from './providers/AuthProvider';
 import Loader from './Components/Loader/Loader';
 import Blog from './Components/Blog/Blog';
+import AddToy from './Components/AddToy/AddToy';
+import MyToy from './Components/MyToy/MyToy';
+import AllToy from './Components/AllToy/AllToy';
+import PrivateRoutes from './routes/PrivateRoutes';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +29,18 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/add-toy",
+        element: <PrivateRoutes><AddToy></AddToy></PrivateRoutes>,
+      },
+      {
+        path: "/my-toy",
+        element: <PrivateRoutes><MyToy></MyToy></PrivateRoutes>,
+      },
+      {
+        path: "/all-toys",
+        element: <AllToy></AllToy>
       },
       {
         path: "/login",

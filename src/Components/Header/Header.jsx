@@ -35,6 +35,7 @@ const Header = () => {
                         navbarScroll
                     >
                         <ActiveLinks to="/">Home</ActiveLinks>
+                        <ActiveLinks to="/blog">Blog</ActiveLinks>
                         <ActiveLinks to="/">All Toys</ActiveLinks>
                         <ActiveLinks to="/">My Toys</ActiveLinks>
                         <ActiveLinks to="/">Add A New Toy</ActiveLinks>

@@ -28,7 +28,7 @@ const Login = () => {
     }
     const handleGoogleLogin = () => {
         googleLogin()
-        .then(result =>{
+        .then(() =>{
             // console.log(result);
             navigate(from, {replace : true});
         })

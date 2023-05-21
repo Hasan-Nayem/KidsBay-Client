@@ -12,6 +12,7 @@ import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import AuthProvider from './providers/AuthProvider';
 import Loader from './Components/Loader/Loader';
+import Blog from './Components/Blog/Blog';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +22,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
       {
         path: "/login",
         element: <Login></Login>,

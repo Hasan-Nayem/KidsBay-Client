@@ -10,6 +10,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
     const {user,logout} = useContext(AuthContext);
@@ -25,7 +26,9 @@ const Header = () => {
             <ToastContainer />
              <Navbar expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+                    <Navbar.Brand href="/">
+                        <img src={logo} style={{width : "5rem"}} alt="" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         

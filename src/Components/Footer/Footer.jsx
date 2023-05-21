@@ -40,8 +40,10 @@ const Footer = () => {
                         <input type="text" className="form-control p-3 my-2" placeholder="Email Address"/>
                     <button className="footer-btn text-white p-3 rounded w-100 border-0">Send <i className="fas fa-paper-plane"></i> </button>
                 </div>
-
+                    <p className="text-center text-white">&copy; - <i>2008-2015</i></p>
+                    <i className="text-center text-white">All Right Reserved. Powered By Mehedi Hasan Nayem</i>
                 </div>
+                
             </div>
             </footer>
     );

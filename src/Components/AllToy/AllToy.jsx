@@ -1,7 +1,8 @@
+import './AllToy.css';
 const AllToy = () => {
     return (
-        <div>
-            this is all       
+        <div className="container">
+            
         </div>
     );
 };

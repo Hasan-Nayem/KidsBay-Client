@@ -3,9 +3,13 @@ import './AddToy.css';
 import { AuthContext } from '../../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Navigate } from 'react-router-dom';
+import { useTitle } from '../../hooks/hooks';
 const AddToy = () => {
+    useTitle('Add A Toy');
     const {user} = useContext(AuthContext);
     const [category, SetCategory] = useState([]);
+    
     useEffect(() => {
         fetch("http://localhost:3000/category")
         .then(response => response.json())
@@ -37,6 +41,7 @@ const AddToy = () => {
         .then(data => {
             if(data.insertedId){
                 form.reset();
+                <Navigate to={`/my-toy/${user.uid}`}></Navigate>
                 toast.success("Toy Added successfully");
             }
         });

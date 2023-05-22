@@ -76,7 +76,7 @@ const MyToy = () => {
                                 <td>{toy.category}</td>
                                 <td>
                                     <div className="d-flex align-items-center">
-                                        <a href=""><i className="fa-solid fa-pen-to-square ms-3 text-success"></i></a>
+                                        <a href={`/update-toy/${toy._id}`}><i className="fa-solid fa-pen-to-square ms-3 text-success"></i></a>
                                         <i onClick={()=>{handleDelete(toy._id)}} className="fa-solid fa-trash ms-3 text-danger"></i>
                                     </div>
                                 </td>

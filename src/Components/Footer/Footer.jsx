@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="row">
                 <div className="col-md-3 col-sm-12 p-3 text-center">
                     <img src={footerLogo} className="p-3 footer-logo" alt="" />
-                    <p className="text-wrap text-start text-white p-3 fs-5">China, India, and the United States are the leading countries when it comes to toys and games production. At an estimated 56 billion U.S. dollars in 2022, China is the worlds top producer of toys. Consumer spending on toys is typically at its highest during holiday shopping events.</p>
+                    <p className="text-wrap text-start text-white p-3 fs-5"> At an estimated 56 billion U.S. dollars in 2022, China is the worlds top producer of toys. Consumer spending on toys is typically at its highest during holiday shopping events.</p>
                 </div>
                 <div className="col-md-3 col-sm-12 p-3 text-white">
                     <h3 className="p-3 ">Usefull Links</h3>

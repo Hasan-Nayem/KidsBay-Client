@@ -1,11 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './AddToy.css';
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddToy = () => {
     const {user} = useContext(AuthContext);
+    const [category, SetCategory] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:3000/category")
+        .then(response => response.json())
+        .then(response=> SetCategory(response));
+    },[]);
     const addToy = (event) => {
         event.preventDefault();
         const form = event.target;
+        const seller_id = user.uid;
         const name = form.name.value;
         const email = form.email.value;
         const toy_title = form.title.value;
@@ -15,12 +24,27 @@ const AddToy = () => {
         const quantity = form.quantity.value;
         const category = form.category.value;
         const description = form.description.value;
-        const data = {name, email, toy_title,description , price,img, rating, quantity, category};
-        console.log(data);
-        
+        const data = {seller_id,name, email, toy_title,description , price,img, rating, quantity, category};
+        // console.log(data);
+        fetch('http://localhost:3000/addToy',{
+            method: 'POST',
+            headers: { 
+                "Content-type" : "application/json",
+            },
+            body : JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.insertedId){
+                form.reset();
+                toast.success("Toy Added successfully");
+            }
+        });
     }
+
     return (
-        <div className="container my-2 p-4 shadow">
+        <div className="container p-4 shadow">
+            <ToastContainer />
              <h1 className="text-center my-2">Add Your Toy</h1>
              <form onSubmit={addToy} className="form-control">
                 <div className="row">
@@ -74,7 +98,13 @@ const AddToy = () => {
                     <div className="col-lg-6 col-sm-12">
                         <div className="form-group my-3">
                             <label htmlFor="category">Category</label>
-                            <input type="text" className="form-control" name="category"/>
+                            {/* <input type="text" className="form-control" name="category"/> */}
+                            <select name="category" className="form-control" id="">
+                                <option> Please select the category</option>
+                                {
+                                    category.map(category=> <option key={category._id} value={category.title}>{category.title}</option> )
+                                }
+                            </select>
                         </div>
                     </div>
                 </div>

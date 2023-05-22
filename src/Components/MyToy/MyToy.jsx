@@ -3,6 +3,7 @@ import './MyToy.css';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useTitle } from '../../hooks/hooks';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const MyToy = () => {
     useTitle("My Toys");
     const myToys = useLoaderData();
@@ -40,6 +41,27 @@ const MyToy = () => {
                 })
             }
           })
+    }
+    if(toys.length === 0 ){
+        return (
+            <div className="container my-5 p-4">
+                <div className="d-flex align-items-center justify-content-center">
+                    <div className="">
+                        <LazyLoadImage 
+                            src='https://i.ibb.co/vcSKFYY/confused.png'
+                            width='500px'
+
+                        />
+                        {/* <img src={image} style={{width: "500px"}} alt="" /> */}
+                    </div>
+                    <div className="text-center">
+                        <h1 className=" text-danger fw-bolder fs-1">OPPS!!!</h1>
+                        <p className="">Looks like you haven&apos;t added any toy yet</p>
+                        <a href="/add-toy" style={{textDecoration: "none"}} className=" shop-now-btn">Click to add now!</a>
+                    </div>
+                </div>
+            </div>
+        );
     }
     return (
         <div className="container shadow my-5 p-4">

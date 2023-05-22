@@ -11,13 +11,13 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import AuthProvider from './providers/AuthProvider';
-import Loader from './Components/Loader/Loader';
 import Blog from './Components/Blog/Blog';
 import AddToy from './Components/AddToy/AddToy';
 import MyToy from './Components/MyToy/MyToy';
 import AllToy from './Components/AllToy/AllToy';
 import PrivateRoutes from './routes/PrivateRoutes';
 import Update from './Components/Update/Update';
+import Error from './Components/Error/Error';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: '/update-toy/:id',
         loader: ({params})=> fetch(`http://localhost:3000/toy/${params.id}`),
-        element: <Update></Update>,
+        element: <PrivateRoutes><Update></Update></PrivateRoutes>,
       },
       {
         path: "/all-toys",
@@ -57,12 +57,10 @@ const router = createBrowserRouter([
         path: "/registration",
         element: <Registration></Registration>
       }
-    ]
+    ],
+    errorElement : <Error />,
+    
   },
-  {
-    path :"/loader",
-    element: <Loader></Loader>
-  }
   
 ]);
 

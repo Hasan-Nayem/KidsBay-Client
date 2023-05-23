@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTitle } from '../../hooks/hooks';
 import './AllToy.css';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const AllToy = () => {
@@ -72,9 +72,10 @@ const AllToy = () => {
                                 <td data-label="Price">{toy.price}</td>
                                 <td data-label="Available Unit">{toy.quantity}</td>
                                 <td data-label="Action">
-                                    <a href="#">
+                                    <Link to={`/toy/${toy._id}`}><i className="fa-solid fa-eye"></i></Link>
+                                    {/* <a href={`http://localhost:3000/toy/${toy._id}`}>
                                         <i className="fa-solid fa-eye"></i>
-                                    </a>
+                                    </a> */}
                                 </td>
                             </tr>
                             )

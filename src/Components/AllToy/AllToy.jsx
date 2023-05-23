@@ -10,7 +10,7 @@ const AllToy = () => {
     const [toys,SetToys] = useState(loaderData);
     // console.log(toys);
     // const handleSort = () => {
-    //     fetch(`http://localhost:3000/allToysSortBy`)
+    //     fetch(`https://p-hero-assignment11.vercel.app/allToysSortBy`)
     //     .then(response => response.json())
     //     .then(data => SetToys(data))
     //     toast.info('Data sorted by - Price')
@@ -19,7 +19,7 @@ const AllToy = () => {
         event.preventDefault();
         const sortBy = event.target.sortBy.value;
         console.log(sortBy);
-        fetch(`http://localhost:3000/allToysSortBy/${sortBy}`)
+        fetch(`https://p-hero-assignment11.vercel.app/allToysSortBy/${sortBy}`)
         .then(response => response.json())
         .then(data => SetToys(data))
         toast.info('Data sorted by - Price')
@@ -73,7 +73,7 @@ const AllToy = () => {
                                 <td data-label="Available Unit">{toy.quantity}</td>
                                 <td data-label="Action">
                                     <Link to={`/toy/${toy._id}`}><i className="fa-solid fa-eye"></i></Link>
-                                    {/* <a href={`http://localhost:3000/toy/${toy._id}`}>
+                                    {/* <a href={`https://p-hero-assignment11.vercel.app/toy/${toy._id}`}>
                                         <i className="fa-solid fa-eye"></i>
                                     </a> */}
                                 </td>

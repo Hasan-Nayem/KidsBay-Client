@@ -11,7 +11,7 @@ const AddToy = () => {
     const [category, SetCategory] = useState([]);
     
     useEffect(() => {
-        fetch("http://localhost:3000/category")
+        fetch("https://p-hero-assignment11.vercel.app/category")
         .then(response => response.json())
         .then(response=> SetCategory(response));
     },[]);
@@ -30,7 +30,7 @@ const AddToy = () => {
         const description = form.description.value;
         const data = {seller_id,name, email, toy_title,description , price,img, rating, quantity, category};
         // console.log(data);
-        fetch('http://localhost:3000/addToy',{
+        fetch('https://p-hero-assignment11.vercel.app/addToy',{
             method: 'POST',
             headers: { 
                 "Content-type" : "application/json",

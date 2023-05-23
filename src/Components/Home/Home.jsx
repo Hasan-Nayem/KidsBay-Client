@@ -77,19 +77,19 @@ const Home = () => {
                 <Tabs>
 
                     <TabList>
-                    <Tab>Miniature Cars</Tab>
+                    <Tab>All Toys</Tab>
                     <Tab>Construction Toys</Tab>
                     <Tab>Sports Car</Tab>
                     </TabList>
 
                     <TabPanel>
-                        <h2>Any content 1</h2>
+                        <h2>All toys tab</h2>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        <h2>Construction toys tab</h2>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        <h2>sports car</h2>
                     </TabPanel>
 
                 </Tabs>

@@ -11,7 +11,7 @@ const Update = () => {
     const [category, SetCategory] = useState([]);
     const loaderData = useLoaderData();
     useEffect(() => {
-        fetch("http://localhost:3000/category")
+        fetch("https://p-hero-assignment11.vercel.app/category")
         .then(response => response.json())
         .then(response=> SetCategory(response));
     },[]);
@@ -30,7 +30,7 @@ const Update = () => {
         const description = form.description.value;
         const data = {seller_id,name, email, toy_title,description , price,img, rating, quantity, category};
         // console.log(data);\
-        fetch(`http://localhost:3000/toy/${loaderData._id}`,{
+        fetch(`https://p-hero-assignment11.vercel.app/toy/${loaderData._id}`,{
             method : 'PUT',
             headers : {
                 'Content-type': 'application/json'

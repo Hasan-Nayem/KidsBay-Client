@@ -10,7 +10,7 @@ const MyToy = () => {
     const [toys,SetToys] = useState(myToys);
 
     const handleDelete = (_id) => {
-        const url = `http://localhost:3000/my-toy/${_id}`;
+        const url = `https://p-hero-assignment11.vercel.app/my-toy/${_id}`;
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

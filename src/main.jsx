@@ -38,22 +38,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-toy/:id",
-        loader: ({params})=> fetch(`http://localhost:3000/my-toy/${params.id}`),
+        loader: ({params})=> fetch(`https://p-hero-assignment11.vercel.app/my-toy/${params.id}`),
         element: <PrivateRoutes><MyToy></MyToy></PrivateRoutes>,
       },
       {
         path: '/update-toy/:id',
-        loader: ({params})=> fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({params})=> fetch(`https://p-hero-assignment11.vercel.app/toy/${params.id}`),
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
       },
       {
         path: "/all-toys",
-        loader: () => fetch(`http://localhost:3000/allToys`),
+        loader: () => fetch(`https://p-hero-assignment11.vercel.app/allToys`),
         element: <AllToy></AllToy>
       },
       {
         path: '/toy/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/getToy/${params.id}`),
+        loader: ({params}) => fetch(`https://p-hero-assignment11.vercel.app/getToy/${params.id}`),
         element: <PrivateRoutes><Toy></Toy></PrivateRoutes>,
       },
       {

@@ -11,7 +11,7 @@ const Error = () => {
                 width='100%'
             />
             {/* <p className='fw-bolder '>{error.statusText || error.message}</p> */}
-            <a href="/add-toy" style={{textDecoration: "none"}} className=" shop-now-btn">Back to home</a>
+            <a href="/" style={{textDecoration: "none"}} className=" shop-now-btn">Back to home</a>
         </div>
     );
 };

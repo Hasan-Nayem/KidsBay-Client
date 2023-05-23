@@ -22,7 +22,7 @@ const Update = () => {
         const name = form.name.value;
         const email = form.email.value;
         const toy_title = form.title.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const img = form.img.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;

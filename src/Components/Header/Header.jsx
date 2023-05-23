@@ -39,9 +39,14 @@ const Header = () => {
                         <ActiveLinks to="/">Home</ActiveLinks>
                         <ActiveLinks to="/blog">Blog</ActiveLinks>
                         <ActiveLinks to="/all-toys">All Toys</ActiveLinks>
-                        <ActiveLinks to="/add-toy">Add A New Toy</ActiveLinks>
+                        
                         {
-                            user && <ActiveLinks to={`/my-toy/${user.uid}`}>My Toys</ActiveLinks>
+                            user && 
+                            <>
+                                <ActiveLinks to="/add-toy">Add A New Toy</ActiveLinks>
+                                <ActiveLinks to={`/my-toy/${user.uid}`}>My Toys</ActiveLinks>
+                            </>
+                            
                         }
                     </Nav>
                     <Nav className="d-flex align-items-center justify-content-between">
